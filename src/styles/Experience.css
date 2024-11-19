@@ -1,0 +1,18 @@
+.experience {
+  padding: 20px;
+  background: #f4f4f4;
+}
+
+.experience-item {
+  margin-bottom: 20px;
+}
+
+@media (max-width: 600px) {
+  .experience-item h3 {
+    font-size: 16px;
+  }
+
+  .experience-item p, .experience-item ul {
+    font-size: 14px;
+  }
+}

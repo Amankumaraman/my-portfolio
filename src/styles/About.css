@@ -1,0 +1,14 @@
+.about {
+  padding: 20px;
+  background: #f4f4f4;
+}
+
+.about p {
+  margin: 10px 0;
+}
+
+@media (max-width: 600px) {
+  .about p {
+    font-size: 14px;
+  }
+}

@@ -1,0 +1,49 @@
+body {
+  font-family: 'Arial', sans-serif;
+  background-color: #f4f4f4;
+  color: #333;
+  margin: 0;
+  padding: 0;
+}
+
+.header {
+  background-image: url('./assets/header-background.jpg'); /* Adjust the path accordingly */
+  background-size: cover;
+  color: white;
+  text-align: center;
+  padding: 150px 0;
+}
+
+
+.header-content {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.about-section {
+  padding: 60px 0;
+}
+
+.skills-section, .projects-section, .testimonials-section, .contact-section {
+  padding: 60px 0;
+}
+
+.skills-section .text-center, .projects-section .project-card, .testimonials-section .card, .contact-section .form-group {
+  margin-bottom: 30px;
+}
+
+.footer {
+  background-color: #222;
+  color: #fff;
+  padding: 20px 0;
+}
+
+.footer p {
+  margin: 0;
+}
+
+@media (max-width: 767px) {
+  .header {
+    padding: 100px 0;
+  }
+}

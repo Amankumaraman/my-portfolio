@@ -1,0 +1,15 @@
+.contact {
+  padding: 20px;
+  background: #f4f4f4;
+}
+
+.contact a {
+  color: #333;
+  text-decoration: underline;
+}
+
+@media (max-width: 600px) {
+  .contact p {
+    font-size: 14px;
+  }
+}
