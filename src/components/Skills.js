@@ -1,24 +1,42 @@
 import React from "react";
 import { Container, Row, Col } from "react-bootstrap";
 import { motion } from "framer-motion";
-import { FaReact, FaPython, FaNodeJs, FaDatabase, FaHtml5, FaCss3Alt, FaJs, FaGitAlt, FaDocker, FaAws } from "react-icons/fa";
-import { SiTypescript, SiMongodb, SiDjango, SiFlask } from "react-icons/si";
+import {
+  FaReact,
+  FaPython,
+  FaGitAlt,
+  FaDocker,
+  FaAws,
+} from "react-icons/fa";
+import {
+  SiMongodb,
+  SiDjango,
+  SiFlask,
+  SiFlutter,
+  SiTensorflow,
+  SiScikitlearn,
+  SiOpencv,
+  SiPostgresql,
+  SiRedis,
+  SiLinux,
+} from "react-icons/si";
 
 const skillsData = [
-  { id: 1, name: "React", icon: <FaReact size={30} />, level: "Advanced" },
-  { id: 2, name: "Python", icon: <FaPython size={30} />, level: "Advanced" },
-  { id: 3, name: "Node.js", icon: <FaNodeJs size={30} />, level: "Intermediate" },
-  { id: 4, name: "Databases", icon: <FaDatabase size={30} />, level: "Advanced" },
-  { id: 5, name: "HTML5", icon: <FaHtml5 size={30} />, level: "Advanced" },
-  { id: 6, name: "CSS3", icon: <FaCss3Alt size={30} />, level: "Advanced" },
-  { id: 7, name: "JavaScript", icon: <FaJs size={30} />, level: "Advanced" },
-  { id: 8, name: "TypeScript", icon: <SiTypescript size={30} />, level: "Intermediate" },
-  { id: 9, name: "Git", icon: <FaGitAlt size={30} />, level: "Advanced" },
-  { id: 10, name: "Docker", icon: <FaDocker size={30} />, level: "Intermediate" },
-  { id: 11, name: "AWS", icon: <FaAws size={30} />, level: "Intermediate" },
-  { id: 12, name: "MongoDB", icon: <SiMongodb size={30} />, level: "Intermediate" },
-  { id: 13, name: "Django", icon: <SiDjango size={30} />, level: "Intermediate" },
-  { id: 14, name: "Flask", icon: <SiFlask size={30} />, level: "Intermediate" },
+  { id: 1, name: "Python", icon: <FaPython size={30} />, level: "Advanced" },
+  { id: 2, name: "Django / DRF", icon: <SiDjango size={30} />, level: "Advanced" },
+  { id: 3, name: "React", icon: <FaReact size={30} />, level: "Advanced" },
+  { id: 4, name: "Flutter", icon: <SiFlutter size={30} />, level: "Intermediate" },
+  { id: 5, name: "FastAPI / Flask", icon: <SiFlask size={30} />, level: "Intermediate" },
+  { id: 6, name: "TensorFlow", icon: <SiTensorflow size={30} />, level: "Intermediate" },
+  { id: 7, name: "Scikit-Learn", icon: <SiScikitlearn size={30} />, level: "Intermediate" },
+  { id: 8, name: "OpenCV", icon: <SiOpencv size={30} />, level: "Intermediate" },
+  { id: 9, name: "PostgreSQL", icon: <SiPostgresql size={30} />, level: "Advanced" },
+  { id: 10, name: "MongoDB", icon: <SiMongodb size={30} />, level: "Intermediate" },
+  { id: 11, name: "Redis", icon: <SiRedis size={30} />, level: "Intermediate" },
+  { id: 12, name: "Docker", icon: <FaDocker size={30} />, level: "Intermediate" },
+  { id: 13, name: "AWS (EC2, S3, Lambda)", icon: <FaAws size={30} />, level: "Intermediate" },
+  { id: 14, name: "Git & GitHub Actions", icon: <FaGitAlt size={30} />, level: "Advanced" },
+  { id: 15, name: "Linux & Nginx", icon: <SiLinux size={30} />, level: "Intermediate" },
 ];
 
 const Skills = () => {
