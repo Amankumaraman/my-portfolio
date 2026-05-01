@@ -1,0 +1,35 @@
+.skills {
+    padding: 20px;
+  }
+  
+  .skills-icons {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  
+  .skill {
+    margin: 10px;
+    text-align: center;
+    flex: 1 1 100px;
+    transition: transform 0.3s ease;
+  }
+  
+  .skill:hover {
+    transform: scale(1.1);
+  }
+  
+  .skill p {
+    margin: 5px 0 0;
+  }
+  
+  @media (max-width: 600px) {
+    .skill {
+      flex: 1 1 80px;
+    }
+  
+    .skill p {
+      font-size: 12px;
+    }
+  }
+  
