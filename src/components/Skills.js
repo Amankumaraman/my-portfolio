@@ -4,62 +4,78 @@ import { motion } from "framer-motion";
 import {
   FaReact,
   FaPython,
-  FaGitAlt,
-  FaDocker,
   FaAws,
 } from "react-icons/fa";
 import {
-  SiMongodb,
   SiDjango,
-  SiFlask,
-  SiFlutter,
-  SiTensorflow,
-  SiScikitlearn,
-  SiOpencv,
   SiPostgresql,
-  SiRedis,
-  SiLinux,
+  SiLangchain,
 } from "react-icons/si";
 
 const skillsData = [
-  { id: 1, name: "Python", icon: <FaPython size={30} />, level: "Advanced" },
-  { id: 2, name: "Django / DRF", icon: <SiDjango size={30} />, level: "Advanced" },
-  { id: 3, name: "React", icon: <FaReact size={30} />, level: "Advanced" },
-  { id: 4, name: "Flutter", icon: <SiFlutter size={30} />, level: "Intermediate" },
-  { id: 5, name: "FastAPI / Flask", icon: <SiFlask size={30} />, level: "Intermediate" },
-  { id: 6, name: "TensorFlow", icon: <SiTensorflow size={30} />, level: "Intermediate" },
-  { id: 7, name: "Scikit-Learn", icon: <SiScikitlearn size={30} />, level: "Intermediate" },
-  { id: 8, name: "OpenCV", icon: <SiOpencv size={30} />, level: "Intermediate" },
-  { id: 9, name: "PostgreSQL", icon: <SiPostgresql size={30} />, level: "Advanced" },
-  { id: 10, name: "MongoDB", icon: <SiMongodb size={30} />, level: "Intermediate" },
-  { id: 11, name: "Redis", icon: <SiRedis size={30} />, level: "Intermediate" },
-  { id: 12, name: "Docker", icon: <FaDocker size={30} />, level: "Intermediate" },
-  { id: 13, name: "AWS (EC2, S3, Lambda)", icon: <FaAws size={30} />, level: "Intermediate" },
-  { id: 14, name: "Git & GitHub Actions", icon: <FaGitAlt size={30} />, level: "Advanced" },
-  { id: 15, name: "Linux & Nginx", icon: <SiLinux size={30} />, level: "Intermediate" },
+  { name: "Python Core", icon: <FaPython />, level: 95, color: "var(--neon-cyan)", desc: "Metaprogramming, AsyncIO, Optimizing" },
+  { name: "Django / FastAPI", icon: <SiDjango />, level: 90, color: "var(--neon-purple)", desc: "REST, GraphQL, Microservices" },
+  { name: "GenAI / RAG", icon: <SiLangchain />, level: 88, color: "var(--neon-green)", desc: "LangChain, VectorDB, Prompt Eng." },
+  { name: "React / Next.js", icon: <FaReact />, level: 85, color: "var(--neon-pink)", desc: "SSR, State Mgmt, Animations" },
+  { name: "Database Arch", icon: <SiPostgresql />, level: 85, color: "var(--neon-cyan)", desc: "PostgreSQL, Redis, Query Tuning" },
+  { name: "Cloud / DevOps", icon: <FaAws />, level: 80, color: "var(--neon-purple)", desc: "AWS, Docker, CI/CD, Nginx" },
 ];
+
+const SkillBar = ({ name, icon, level, color, desc }) => (
+  <motion.div 
+    whileHover={{ x: 10 }}
+    style={{ marginBottom: '3rem', cursor: 'pointer' }}
+    className="skill-item-wrapper"
+  >
+    <div style={{ display: 'flex', alignItems: 'center', gap: '15px', marginBottom: '10px' }}>
+      <div style={{ 
+        width: '40px', 
+        height: '40px', 
+        display: 'flex', 
+        alignItems: 'center', 
+        justifyContent: 'center', 
+        background: 'rgba(255,255,255,0.05)',
+        border: `1px solid ${color}`,
+        color: color,
+        boxShadow: `0 0 10px ${color}33`
+      }}>
+        {icon}
+      </div>
+      <div>
+        <span className="gaming-font" style={{ fontSize: '1rem', color }}>{name}</span>
+        <p style={{ margin: 0, fontSize: '0.7rem', color: 'var(--text-dim)', fontFamily: 'var(--font-mono)' }}>{desc}</p>
+      </div>
+      <span className="retro-font" style={{ marginLeft: 'auto', color: 'var(--text-dim)' }}>XP_{level}</span>
+    </div>
+    <div style={{ width: '100%', height: '4px', background: '#111', position: 'relative', overflow: 'hidden' }}>
+      <motion.div
+        initial={{ width: 0 }}
+        whileInView={{ width: `${level}%` }}
+        viewport={{ once: true }}
+        transition={{ duration: 1.5, ease: "circOut" }}
+        style={{ height: '100%', background: color, boxShadow: `0 0 15px ${color}` }}
+      />
+    </div>
+  </motion.div>
+);
 
 const Skills = () => {
   return (
-    <motion.section
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      transition={{ duration: 1 }}
-      className="skills-section"
-    >
+    <section id="skills" className="skills-section">
       <Container>
-        <h2>Skills</h2>
-        <Row className="text-center">
-          {skillsData.map((skill) => (
-            <Col key={skill.id} xs={6} sm={4} md={3}>
-              <div className="skill-icon">{skill.icon}</div>
-              <h4>{skill.name}</h4>
-              <p>{skill.level}</p>
+        <div style={{ textAlign: 'center', marginBottom: '6rem' }}>
+          <h2 className="glow-text" style={{ fontSize: '3rem' }}>TECH_ARSENAL</h2>
+          <p className="retro-font" style={{ color: 'var(--text-dim)' }}>[SKILLS_LOADOUT_V2.1]</p>
+        </div>
+        <Row>
+          {skillsData.map((skill, index) => (
+            <Col key={index} lg={6}>
+              <SkillBar {...skill} />
             </Col>
           ))}
         </Row>
       </Container>
-    </motion.section>
+    </section>
   );
 };
 

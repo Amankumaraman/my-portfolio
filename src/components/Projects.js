@@ -1,191 +1,159 @@
 import React, { useState } from "react";
-import { Container, Row, Col, Card, Button } from "react-bootstrap";
+import { Container, Row, Col } from "react-bootstrap";
 import { motion } from "framer-motion";
 
 const projectsData = [
-  // Existing projects (kept, only refined to match your resume)
-
   {
     id: 1,
-    title: "RAG Chatbot (GenAI Chat App)",
-    category: "AI",
-    description:
-      "A Retrieval-Augmented Generation chatbot using Transformers, FAISS, and LangChain to answer domain-specific queries with context-aware responses.",
-    repo: "https://github.com/Amankumaraman/RAG-ChatApp",
+    title: "SiteBuilt AI",
+    category: "AI/ML",
+    description: "AI-powered system that converts site photos into accurate As-Built drawings using image processing and LLMs.",
+    tech: ["FastAPI", "Next.js", "LLM", "OpenCV"],
+    link: "https://sitebuilt.vercel.app/"
   },
   {
     id: 2,
-    title: "E-Commerce Website (Homes.web)",
-    category: "Web Development",
-    description:
-      "A full-stack e-commerce platform built with Django on the backend and React on the frontend, featuring product listing, cart, and checkout flows.",
-    repo: "https://github.com/Amankumaraman/Homes.web",
+    title: "Railway Tender Automation",
+    category: "Automation",
+    description: "Automated daily tender retrieval system with Selenium, Google Drive integration, and email notifications.",
+    tech: ["Python", "Selenium", "Django", "PostgreSQL"],
+    link: "https://ireps.suvidhaen.com/"
   },
   {
     id: 3,
-    title: "Portfolio Website",
-    category: "Web Development",
-    description:
-      "A personal portfolio website showcasing my skills, experience, and projects built with modern frontend best practices.",
-    repo: "https://github.com/Amankumaraman/Portfolio_demo",
+    title: "CCTV Wagon Monitoring",
+    category: "IoT",
+    description: "IoT platform for live train tracking and historical video monitoring using CCTV camera streams.",
+    tech: ["FastAPI", "React", "AWS S3", "IoT"],
+    link: "https://cctv-wagon.suvidhaen.com/"
   },
   {
     id: 4,
-    title: "Stock Prediction Model",
-    category: "AI",
-    description:
-      "A machine learning model for stock price prediction using Python and time-series analysis techniques.",
-    repo: "https://github.com/yourusername/stock-prediction-model",
+    title: "Orbit Marketplace",
+    category: "Web/E-comm",
+    description: "Odoo-integrated E-commerce platform with RAG chatbot for contextual product recommendations.",
+    tech: ["Django", "LangChain", "Flutter", "FAISS"],
+    link: "#"
   },
   {
     id: 5,
-    title: "Telegram Bot (TeleBot)",
-    category: "AI",
-    description:
-      "A Telegram bot that automates tasks, responds to user queries, and integrates with external APIs for smart automation.",
-    repo: "https://github.com/Amankumaraman/TeleBot",
+    title: "RAG Chatbot",
+    category: "AI/ML",
+    description: "Domain-specific AI assistant using RAG pipeline for context-aware document answering.",
+    tech: ["FastAPI", "FAISS", "Transformers", "OpenAI"],
+    link: "https://github.com/Amankumaraman/RAG-ChatApp"
   },
   {
     id: 6,
-    title: "Doc Scanner App (OCR)",
-    category: "AI",
-    description:
-      "A document scanning and OCR application using OpenCV and Tesseract to detect document edges and extract text with high accuracy.",
-    repo: "https://github.com/Amankumaraman/Scanner-App",
-  },
-  {
-    id: 7,
-    title: "Student Exam Preparation Website",
-    category: "Web Development",
-    description:
-      "A web platform providing APIs and tools to help students prepare for exams efficiently with organized resources.",
-    repo: "https://github.com/Amankumaraman/Student-Exam-Prep",
-  },
-  {
-    id: 8,
-    title: "Video Processing Platform",
-    category: "AI",
-    description:
-      "A tool for processing and analyzing videos using computer vision and AI-based pipelines.",
-    repo: "https://github.com/Amankumaraman/Video_processor",
-  },
-  {
-    id: 9,
-    title: "Vendor Management System",
-    category: "Web Development",
-    description:
-      "A web application to manage vendor onboarding, performance tracking, and vendor-related operations.",
-    repo: "https://github.com/Amankumaraman/vendor_management_system",
-  },
-  {
-    id: 10,
-    title: "PDF Summarizer",
-    category: "AI",
-    description:
-      "An AI-powered tool to summarize long PDF documents into concise, readable content using NLP techniques.",
-    repo: "https://github.com/Amankumaraman/Pdf-Summarizer",
-  },
-
-  // New projects from your resume (no GitHub link required)
-
-  {
-    id: 11,
-    title: "Orbit Marketplace (Odoo-Integrated App)",
-    category: "Web Development",
-    description:
-      "A marketplace application with Flutter frontend and Django backend integrated with Odoo APIs for product, order, and user management, including payment gateway and OTP-based onboarding.",
-    repo: "", // no repo yet / private
-  },
-  {
-    id: 12,
-    title: "Sales Dashboard (VoIP Campaign App)",
-    category: "AI",
-    description:
-      "An intelligent sales analytics dashboard with NLP-powered search, Twilio VoIP integration, and real-time campaign and lead tracking.",
-    repo: "", // no repo yet / private
-  },
-  {
-    id: 13,
-    title: "Study Tracker (Progress Analytics App)",
-    category: "Web Development",
-    description:
-      "A productivity and learning progress tracking app with Django REST APIs and React dashboards visualizing daily, weekly, and monthly study metrics.",
-    repo: "", // no repo yet / private
-  },
-  {
-    id: 14,
-    title: "Web Scraper Automation Tool",
-    category: "Web Development",
-    description:
-      "An automation tool built with Scrapy and BeautifulSoup to scrape, clean, and export structured data from multiple web sources.",
-    repo: "", // no repo yet / private
-  },
+    title: "Doc Scanner OCR",
+    category: "AI/ML",
+    description: "High-accuracy document scanning and text extraction pipeline with OpenCV and Tesseract.",
+    tech: ["Python", "OpenCV", "Tesseract", "Lambda"],
+    link: "https://github.com/Amankumaraman/Scanner-App"
+  }
 ];
+
+const ProjectCard = ({ project }) => (
+  <motion.div 
+    layout
+    initial={{ opacity: 0, scale: 0.9 }}
+    animate={{ opacity: 1, scale: 1 }}
+    exit={{ opacity: 0, scale: 0.9 }}
+    className="cyber-panel mission-card"
+    style={{ height: '100%', display: 'flex', flexDirection: 'column' }}
+  >
+    <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '1rem' }}>
+      <span className="retro-font" style={{ fontSize: '0.6rem', color: 'var(--neon-purple)' }}>MISSION_0{project.id}</span>
+      <span className="retro-font" style={{ fontSize: '0.6rem', color: 'var(--neon-cyan)' }}>[{project.category}]</span>
+    </div>
+    <h3 className="gaming-font" style={{ fontSize: '1.2rem', marginBottom: '1rem' }}>{project.title}</h3>
+    <p style={{ color: 'var(--text-dim)', fontSize: '0.9rem', flexGrow: 1 }}>{project.description}</p>
+    <div style={{ margin: '1rem 0', display: 'flex', flexWrap: 'wrap', gap: '5px' }}>
+      {project.tech.map((t, i) => (
+        <span key={i} className="retro-font" style={{ fontSize: '0.5rem', background: '#1a1a1a', padding: '3px 6px', border: '1px solid #333' }}>
+          {t}
+        </span>
+      ))}
+    </div>
+    <a href={project.link} target="_blank" rel="noreferrer" className="cyber-button-small">LAUNCH MISSION</a>
+  </motion.div>
+);
 
 const Projects = () => {
   const [filter, setFilter] = useState("All");
 
-  const filteredProjects =
-    filter === "All"
-      ? projectsData
-      : projectsData.filter((project) => project.category === filter);
+  const categories = ["All", "AI/ML", "Web/E-comm", "Automation", "IoT"];
+
+  const filteredProjects = filter === "All" 
+    ? projectsData 
+    : projectsData.filter(p => p.category === filter || (filter === "AI/ML" && p.category === "AI/ML"));
 
   return (
-    <motion.section
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      transition={{ duration: 1 }}
-      className="projects-section"
-    >
+    <section id="projects" className="projects-section">
       <Container>
-        <h2>Projects</h2>
-        <div className="filter-buttons mb-3">
-          <Button
-            variant={filter === "All" ? "primary" : "outline-primary"}
-            className="me-2 mb-2"
-            onClick={() => setFilter("All")}
-          >
-            All
-          </Button>
-          <Button
-            variant={filter === "Web Development" ? "primary" : "outline-primary"}
-            className="me-2 mb-2"
-            onClick={() => setFilter("Web Development")}
-          >
-            Web Development
-          </Button>
-          <Button
-            variant={filter === "AI" ? "primary" : "outline-primary"}
-            className="mb-2"
-            onClick={() => setFilter("AI")}
-          >
-            AI
-          </Button>
+        <h2 className="text-center glow-text" style={{ marginBottom: '3rem' }}>MISSION CONTROL</h2>
+        
+        <div style={{ display: 'flex', justifyContent: 'center', gap: '10px', marginBottom: '3rem', flexWrap: 'wrap' }}>
+          {categories.map(cat => (
+            <button 
+              key={cat}
+              onClick={() => setFilter(cat)}
+              className={`filter-btn ${filter === cat ? 'active' : ''}`}
+            >
+              {cat}
+            </button>
+          ))}
         </div>
+
         <Row>
           {filteredProjects.map((project) => (
-            <Col key={project.id} xs={12} md={6} lg={4}>
-              <Card className="project-card mb-4">
-                <Card.Body>
-                  <Card.Title>{project.title}</Card.Title>
-                  <Card.Text>{project.description}</Card.Text>
-                  {project.repo && (
-                    <Button
-                      variant="outline-secondary"
-                      href={project.repo}
-                      target="_blank"
-                      rel="noreferrer"
-                    >
-                      GitHub Repo
-                    </Button>
-                  )}
-                </Card.Body>
-              </Card>
+            <Col key={project.id} xs={12} md={6} lg={4} style={{ marginBottom: '2rem' }}>
+              <ProjectCard project={project} />
             </Col>
           ))}
         </Row>
       </Container>
-    </motion.section>
+      <style>{`
+        .filter-btn {
+          background: transparent;
+          border: 1px solid #333;
+          color: var(--text-dim);
+          padding: 8px 15px;
+          font-family: var(--font-gaming);
+          font-size: 0.8rem;
+          cursor: pointer;
+          transition: all 0.3s;
+        }
+        .filter-btn:hover, .filter-btn.active {
+          border-color: var(--neon-cyan);
+          color: var(--neon-cyan);
+          box-shadow: 0 0 10px rgba(0, 243, 255, 0.3);
+        }
+        .cyber-button-small {
+          display: block;
+          text-align: center;
+          border: 1px solid var(--neon-cyan);
+          color: var(--neon-cyan);
+          text-decoration: none;
+          font-family: var(--font-retro);
+          font-size: 0.6rem;
+          padding: 10px;
+          transition: all 0.3s;
+          background: rgba(0, 243, 255, 0.05);
+        }
+        .cyber-button-small:hover {
+          background: var(--neon-cyan);
+          color: #000;
+          box-shadow: 0 0 15px var(--neon-cyan);
+        }
+        .mission-card {
+          transition: transform 0.3s;
+        }
+        .mission-card:hover {
+          transform: translateY(-5px);
+        }
+      `}</style>
+    </section>
   );
 };
 
