@@ -33,10 +33,10 @@ const Header = () => {
               </div>
               
               <div className="title-wrapper" style={{ position: 'relative' }}>
-                <h1 className="glow-text" style={{ fontSize: '5rem', lineHeight: '1', margin: 0 }}>
+                <h1 className="glow-text hero-title">
                   {text}<span className="cursor-blink">_</span>
                 </h1>
-                <p className="retro-font" style={{ color: 'var(--neon-purple)', marginTop: '10px' }}>[ELITE_FULLSTACK_DEVELOPER]</p>
+                <p className="retro-font hero-subtitle">[ELITE_FULLSTACK_DEVELOPER]</p>
               </div>
 
               <div className="divider" style={{ width: '100px', height: '4px', background: 'var(--neon-cyan)', margin: '30px 0' }} />
@@ -79,6 +79,23 @@ const Header = () => {
         }
         @keyframes blink {
           50% { opacity: 0; }
+        }
+        .hero-title {
+          font-size: 5rem;
+          line-height: 1;
+          margin: 0;
+        }
+        .hero-subtitle {
+          color: var(--neon-purple);
+          margin-top: 10px;
+        }
+        @media (max-width: 768px) {
+          .hero-title { font-size: 2.5rem; }
+          .hero-subtitle { font-size: 0.5rem; }
+          .cyber-panel { padding: 1.5rem !important; }
+        }
+        @media (max-width: 576px) {
+          .hero-title { font-size: 1.8rem; }
         }
       `}</style>
     </header>

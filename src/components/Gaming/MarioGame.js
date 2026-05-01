@@ -230,7 +230,13 @@ const MarioGame = () => {
           ref={canvasRef} 
           width={800} 
           height={400} 
-          style={{ background: '#050505', display: 'block' }}
+          style={{ 
+            background: '#050505', 
+            display: 'block', 
+            maxWidth: '100%', 
+            height: 'auto',
+            border: '1px solid #222'
+          }}
         />
       </div>
       
