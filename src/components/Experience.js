@@ -4,33 +4,9 @@ import { motion } from 'framer-motion';
 
 const experienceData = [
   {
-    title: "Full Stack Engineer (Part-time)",
-    company: "KRAFZEN | Remote (USA)",
-    period: "Aug 2025 – Present",
-    mission: "Architected SiteBuilt AI generator & company web infrastructure.",
-    details: [
-      "Built AI-powered system converting site photos into As-Built drawings.",
-      "Integrated LLM APIs for structured data extraction.",
-      "Translated Figma designs into responsive Next.js apps."
-    ],
-    tech: "FastAPI, Next.js, LLM API, Python"
-  },
-  {
-    title: "Python Full Stack Developer (Freelance)",
-    company: "Sarva Suvidhaen Private Limited",
-    period: "Dec 2024 – Present",
-    mission: "Automating tender retrieval and IoT wagon monitoring.",
-    details: [
-      "Built Selenium automation for daily tender extraction.",
-      "Developed IoT dashboard for live CCTV wagon tracking.",
-      "Integrated S3 & PostgreSQL for video metadata storage."
-    ],
-    tech: "Django, FastAPI, React, Selenium, S3"
-  },
-  {
     title: "Python Full Stack Developer",
     company: "Purpus Orgorbit, Hyderabad",
-    period: "Jan 2025 – Oct 2025",
+    period: "Jan 2025 – Present",
     mission: "E-commerce platform integration with Odoo & AI RAG.",
     details: [
       "Architected REST APIs for order & user management.",
@@ -42,7 +18,7 @@ const experienceData = [
   {
     title: "Python Developer",
     company: "Warals Technology, New Delhi",
-    period: "Nov 2023 – Aug 2024",
+    period: "Nov 2023 – Jan 2025",
     mission: "AI solutions for document processing and RAG systems.",
     details: [
       "Designed RAG pipeline for AI Knowledge Assistant.",
